@@ -1,6 +1,11 @@
 import { useState } from "react"
+import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 
-export default function Login(){
+
+export function Login(){
+
+    const Navigate = useNavigate()
 
     const [formData, setFormData] = useState({
         username: '',
@@ -16,11 +21,29 @@ export default function Login(){
             });
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        // Aquí puedes manejar el envío de datos, por ejemplo, enviarlos a un servidor
-        console.log('Datos del formulario:', formData);
+        axios.post('http://127.0.0.1:8000/login', formData, {
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            }
+          })
+          .then(response => {
+            console.log(response.data);
+            let access = response.data.access_token
+            console.log(access)
+            localStorage.setItem('access-token',access)
+            Navigate('/')
+          })
+          .catch(error => {
+            console.error(error);
+          });
     };
+
+    const test = () => {
+
+        console.log(localStorage.getItem('access-token'))
+    }
 
     return(
         <>
@@ -43,6 +66,7 @@ export default function Login(){
                 </div>
                 <button type="submmit">Login</button>
             </form>
+            <button onClick={test}></button>
         </>
     )
 }
