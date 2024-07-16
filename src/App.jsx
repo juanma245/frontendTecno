@@ -8,7 +8,7 @@ function App() {
     <>
      <Router>
         <Routes>
-          <Route path='/' element={ <h1>{localStorage.getItem('access-token')}</h1>}/>
+          <Route path='/' element={ <h1>Hello world</h1>}/>
           <Route path='/products' element={<Principal></Principal>}/>
           <Route path="/login" element={<Login></Login>} />
           <Route path="*" element={<Navigate to="/login" />} />

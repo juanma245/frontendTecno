@@ -33,7 +33,7 @@ export function Login(){
             let access = response.data.access_token
             console.log(access)
             localStorage.setItem('access-token',access)
-            Navigate('/')
+            Navigate('/products')
           })
           .catch(error => {
             console.error(error);

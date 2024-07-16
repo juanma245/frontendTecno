@@ -1,3 +1,5 @@
+
+
 export function ProductCard({nombre,existencias,valor}){
 
     return(
