@@ -40,9 +40,9 @@ export function Login(){
           });
     };
 
-    const test = () => {
+    const moveSing = () => {
 
-        console.log(localStorage.getItem('access-token'))
+        Navigate('/singin')
     }
 
     return(
@@ -66,7 +66,7 @@ export function Login(){
                 </div>
                 <button type="submmit">Login</button>
             </form>
-            <button onClick={test}></button>
+            <button onClick={moveSing}>Register</button>
         </>
     )
 }

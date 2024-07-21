@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { ProductCard } from './productCard.jsx'
 import { useState, useEffect } from 'react'
+import { NavComponent } from './nav.jsx'
 
 export function Principal(){
 
@@ -16,10 +17,13 @@ export function Principal(){
     
     return(
         <>
-        {products.map(product => (
-            <ProductCard key={product.idProduct} nombre={product.name} existencias={product.stock} valor={product.unitPrice}></ProductCard>
-        ))}
-    
+            <ul>
+                {products.map(product => (
+                    <li key={product.idProduct}>
+                        <ProductCard nombre={product.name} existencias={product.stock} valor={product.unitPrice}></ProductCard>
+                    </li>    
+                ))}
+            </ul>
         </>
     )
 
