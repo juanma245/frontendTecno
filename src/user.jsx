@@ -6,6 +6,7 @@ export function User(){
 
 
     const [user, setUser] = useState({
+        id : '',
         user : '',
         name : '',
         email : '',
@@ -22,15 +23,28 @@ export function User(){
             }})
         .then(response =>{
             setUser(response.data)
-            console.log("data")
         })
     },[]);
 
     const [mod, setMod] = useState(true)
 
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setUser({
+            ...user,
+            [name]: value
+            });
+    };
+
     const changeMode = (e) => {
         e.preventDefault();
-        setMod(!mod)
+        if (mod){
+            setMod(false)
+        }
+        else{
+            setMod(true)
+        }
+        
     }
 
     return(
@@ -39,24 +53,34 @@ export function User(){
                 <div>This should be a image</div>
                 <form action="">
                     <input
+                        name = "user"
                         value={user.user}
                         disabled = {mod}
+                        onChange={handleChange}
                     ></input>
                     <input
+                        name = "name"
                         value={user.name}
-                        disabled = {mod} 
+                        disabled = {mod}
+                        onChange={handleChange} 
                     ></input>
                     <input
+                        name = "email"
                         value={user.email}
                         disabled = {mod}
+                        onChange={handleChange}
                     ></input>
                     <input
+                        name = "cell"
                         value={user.cell}
                         disabled = {mod}
+                        onChange={handleChange}
                     ></input>
                     <input
+                        name = "address"
                         value={user.address}
                         disabled = {mod}
+                        onChange={handleChange}
                     ></input>
                     <button onClick={changeMode}>{mod ? "modificar" : "guardar"}</button>
                 </form>
