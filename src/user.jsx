@@ -6,11 +6,10 @@ export function User(){
 
 
     const [user, setUser] = useState({
-        id : '',
         user : '',
         name : '',
         email : '',
-        cell : '',
+        phone : '',
         address : ''
     })
     
@@ -42,6 +41,12 @@ export function User(){
             setMod(false)
         }
         else{
+            axios.put('http://127.0.0.1:8000/users/modify',user,
+                {headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('access-token')}`
+                }}
+            )
+            alert("usuario modificado")
             setMod(true)
         }
         
@@ -71,8 +76,8 @@ export function User(){
                         onChange={handleChange}
                     ></input>
                     <input
-                        name = "cell"
-                        value={user.cell}
+                        name = "phone"
+                        value={user.phone}
                         disabled = {mod}
                         onChange={handleChange}
                     ></input>
