@@ -3,7 +3,6 @@ import { Login } from './login.jsx'
 import { Principal } from './principal.jsx'
 import { User } from './user.jsx'
 import { Register } from './register.jsx'
-import { NavComponent } from './nav';
 
 function App() {
 

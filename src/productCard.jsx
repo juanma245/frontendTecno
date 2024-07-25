@@ -4,7 +4,7 @@ export function ProductCard({nombre,existencias,valor}){
 
     return(
         <>
-            <article>
+            <article className="productCard">
                 <div>This should be a image</div>
                 <h3>{nombre}</h3>
                 <h3>{valor}</h3>

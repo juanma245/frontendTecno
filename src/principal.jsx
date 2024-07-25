@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { ProductCard } from './productCard.jsx'
 import { useState, useEffect } from 'react'
-import { NavComponent } from './nav.jsx'
 
 export function Principal(){
 

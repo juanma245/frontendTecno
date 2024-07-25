@@ -1,6 +1,7 @@
 import { useState } from "react"
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
+import "./css/login.css"
 
 
 export function Login(){
@@ -47,26 +48,33 @@ export function Login(){
 
     return(
         <>
-            <form className="loginForm" onSubmit={handleSubmit}>
-                <div className="loginCamp">
-                    <label htmlFor = "username" >Username </label>
-                    <input 
-                        type="text" 
-                        name="username" 
-                        value={formData.username}
-                        onChange={handleChange}/>
-                </div>
-                <div className="loginCamp">
-                    <label htmlFor = "password" >password </label>
-                    <input 
-                        type="password" 
-                        name="password" 
-                        value={formData.password}
-                        onChange={handleChange}/>
-                </div>
-                <button type="submmit">Login</button>
-            </form>
-            <button onClick={moveSing}>Register</button>
+            <main className="loginContent">
+                <section className="auxContent">
+                    <div className="aux">
+                        contenido
+                    </div>
+                </section>
+                <form className="loginForm" onSubmit={handleSubmit}>
+                    <div className="loginCamp">
+                        <label htmlFor = "username" >Username </label>
+                        <input 
+                            type="text" 
+                            name="username" 
+                            value={formData.username}
+                            onChange={handleChange}/>
+                    </div>
+                    <div className="loginCamp">
+                        <label htmlFor = "password" >password </label>
+                        <input 
+                            type="password" 
+                            name="password" 
+                            value={formData.password}
+                            onChange={handleChange}/>
+                    </div>
+                    <button type="submmit">Login</button>
+                    <button onClick={moveSing}>Sing in</button>
+                </form>
+            </main>
         </>
     )
 }
